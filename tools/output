@@ -1,0 +1,10 @@
+TextMessage(id='a2e7b17b-8f30-4bb6-bc6c-600af6a2b4eb', source='user', models_usage=None, metadata={}, created_at=datetime.datetime(2025, 7, 6, 5, 1, 7, 604216, tzinfo=datetime.timezone.utc), content='Add 2 with 3', type='TextMessage'), 
+
+
+ToolCallRequestEvent(id='8cdc47ec-527a-4d9c-8a6e-9be18e35e5ca', source='ArthematicOperator', models_usage=RequestUsage(prompt_tokens=95, completion_tokens=21), metadata={}, created_at=datetime.datetime(2025, 7, 6, 5, 1, 23, 714103, tzinfo=datetime.timezone.utc), content=[FunctionCall(id='call_SFnI9jpi9ntQv6dGPzg7QYHU', arguments='{"num1":2,"num2":3}', name='add_numbers')], type='ToolCallRequestEvent'), 
+
+
+ToolCallExecutionEvent(id='982e825d-77e2-49e8-9ef1-781d36b96490', source='ArthematicOperator', models_usage=None, metadata={}, created_at=datetime.datetime(2025, 7, 6, 5, 1, 23, 715945, tzinfo=datetime.timezone.utc), content=[FunctionExecutionResult(content='5', name='add_numbers', call_id='call_SFnI9jpi9ntQv6dGPzg7QYHU', is_error=False)], type='ToolCallExecutionEvent'), 
+
+
+ToolCallSummaryMessage(id='b30259c2-9e34-4296-bfe2-c77b5b967f58', source='ArthematicOperator', models_usage=None, metadata={}, created_at=datetime.datetime(2025, 7, 6, 5, 1, 23, 715997, tzinfo=datetime.timezone.utc), content='5', type='ToolCallSummaryMessage', tool_calls=[FunctionCall(id='call_SFnI9jpi9ntQv6dGPzg7QYHU', arguments='{"num1":2,"num2":3}', name='add_numbers')], results=[FunctionExecutionResult(content='5', name='add_numbers', call_id='call_SFnI9jpi9ntQv6dGPzg7QYHU', is_error=False)])

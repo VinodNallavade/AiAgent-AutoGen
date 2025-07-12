@@ -6,3 +6,12 @@ tiktoken
 autogen-ext[openai,azure]
 azure.identity
 dotenv
+
+
+json_schema_to_pydantic
+autogen-ext[http-tool]
+
+
+## thirdparty tools
+langchain-community
+langchain_tavily

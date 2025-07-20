@@ -1,0 +1,35 @@
+import asyncio
+
+from autogen_ext.code_executors.docker import DockerCommandLineCodeExecutor
+from autogen_ext.models.openai import AzureOpenAIChatCompletionClient
+
+from autogen_agentchat.agents import CodeExecutorAgent
+from autogen_agentchat.conditions import TextMessageTermination
+from autogen_agentchat.ui import Console
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
+
+
+termination_condition = TextMessageTermination("code_executor_agent")
+
+
+async def main() -> None:
+    model_client = AzureOpenAIChatCompletionClient(model="gpt-4o")
+
+    # define the Docker CLI Code Executor
+    code_executor = DockerCommandLineCodeExecutor(work_dir="coding")
+
+    # start the execution container
+    await code_executor.start()
+
+    code_executor_agent = CodeExecutorAgent(
+        "code_executor_agent", code_executor=code_executor, model_client=model_client
+    )
+
+    task = "Write python code to print Hello World!"
+    await Console(code_executor_agent.run_stream(task=task))
+
+    # stop the execution container
+    await code_executor.stop()
+
+
+asyncio.run(main())
